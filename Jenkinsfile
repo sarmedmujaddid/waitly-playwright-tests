@@ -82,7 +82,7 @@ pipeline {
                     <p><strong>Test Report:</strong> <a href="${env.BUILD_URL}Playwright_Test_Report/">View Playwright Report</a></p>
                     <p>All tests completed successfully. No action required.</p>
                 """,
-                to: '${DEFAULT_RECIPIENTS}',
+                to: 'sarmed.mujaddid@gmail.com',
                 mimeType: 'text/html'
             )
         }
@@ -105,7 +105,7 @@ pipeline {
                     <hr/>
                     <p>Please investigate and fix the failing tests.</p>
                 """,
-                to: '${DEFAULT_RECIPIENTS}',
+                to: 'sarmed.mujaddid@gmail.com',
                 mimeType: 'text/html'
             )
         }
