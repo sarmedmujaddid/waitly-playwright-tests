@@ -70,43 +70,40 @@ pipeline {
 
         success {
             echo "✅ All tests passed!"
-            emailext(
-                subject: "✅ Playwright Tests Passed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            mail(
+                subject: "✅ Waitly Tests Passed - Build #${env.BUILD_NUMBER}",
                 body: """
-                    <h2>Test Execution Successful</h2>
-                    <p><strong>Job Name:</strong> ${env.JOB_NAME}</p>
-                    <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
-                    <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                    <p><strong>Status:</strong> ✅ PASSED</p>
-                    <hr/>
-                    <p><strong>Test Report:</strong> <a href="${env.BUILD_URL}Playwright_Test_Report/">View Playwright Report</a></p>
-                    <p>All tests completed successfully. No action required.</p>
+TEST EXECUTION SUCCESSFUL
+
+Build Number: ${env.BUILD_NUMBER}
+Status: ✅ PASSED
+Build URL: ${env.BUILD_URL}
+
+Test Report: ${env.BUILD_URL}Playwright_Test_Report/
+
+All tests completed successfully. No action required.
                 """,
-                to: 'sarmed.mujaddid@gmail.com',
-                mimeType: 'text/html'
+                to: 'sarmed.mujaddid@gmail.com'
             )
         }
 
         failure {
             echo "❌ Tests failed!"
-            emailext(
-                subject: "❌ Playwright Tests Failed - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            mail(
+                subject: "❌ Waitly Tests Failed - Build #${env.BUILD_NUMBER}",
                 body: """
-                    <h2>Test Execution Failed</h2>
-                    <p><strong>Job Name:</strong> ${env.JOB_NAME}</p>
-                    <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
-                    <p><strong>Build URL:</strong> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                    <p><strong>Status:</strong> ❌ FAILED</p>
-                    <hr/>
-                    <h3>Failed Tests:</h3>
-                    <p>Check the detailed report below:</p>
-                    <p><strong>Test Report:</strong> <a href="${env.BUILD_URL}Playwright_Test_Report/">View Playwright Report</a></p>
-                    <p><strong>Build Console:</strong> <a href="${env.BUILD_URL}console">View Console Output</a></p>
-                    <hr/>
-                    <p>Please investigate and fix the failing tests.</p>
+TEST EXECUTION FAILED
+
+Build Number: ${env.BUILD_NUMBER}
+Status: ❌ FAILED
+Build URL: ${env.BUILD_URL}
+
+Test Report: ${env.BUILD_URL}Playwright_Test_Report/
+Console Output: ${env.BUILD_URL}console
+
+Please investigate and fix the failing tests.
                 """,
-                to: 'sarmed.mujaddid@gmail.com',
-                mimeType: 'text/html'
+                to: 'sarmed.mujaddid@gmail.com'
             )
         }
 
