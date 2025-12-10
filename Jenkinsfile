@@ -58,7 +58,8 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Playwright Test Report',
                 allowMissing: true,
-                alwaysLinkToLastBuild: true
+                alwaysLinkToLastBuild: true,
+                keepAll: true
             ])
 
             // Publish JUnit test results (if available)
