@@ -1,1 +1,16 @@
-{\n  "name": "waitly-playwright-tests",\n  "version": "1.0.0",\n  "description": "",\n  "main": "index.js",\n  "scripts": {\n    "test": "npx playwright test"\n  },\n  "keywords": [],\n  "author": "",\n  "license": "ISC",\n  "type": "commonjs",\n  "devDependencies": {\n    "@playwright/test": "^1.56.1"\n  }\n}\n
+{
+  "name": "waitly-playwright-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
